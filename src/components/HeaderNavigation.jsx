@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
 
-export default function KuonHeader({
+// Komponen ini mengatur navigasi header tetap (fixed header) di bagian atas layar.
+// Berisi nama Steven Wang di pojok kiri atas dan tombol hamburger menu di pojok kanan atas.
+// Menu navigasi mencakup: HOME, ABOUT ME, PROJECT, EXPERIENCE, GET IN TOUCH.
+export default function HeaderNavigation({
+  isHome,
   onNavigateHome,
-  onNavigateProjects,
   onNavigateAbout,
+  onNavigateProjects,
   onNavigateExperience,
   onNavigateContact,
   isUnderlayerOpen,
@@ -12,7 +16,7 @@ export default function KuonHeader({
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Lock body scroll when menu is open
+  // Kunci scroll halaman saat menu navigasi overlay sedang terbuka
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -21,7 +25,7 @@ export default function KuonHeader({
     }
   }, [menuOpen]);
 
-  // Handle escape key to close menu
+  // Tutup menu navigasi saat tombol Escape ditekan pada keyboard
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && menuOpen) {
@@ -32,16 +36,19 @@ export default function KuonHeader({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
 
+  // Handler perpindahan halaman/bagian dari menu navigasi
   const handleNav = (destination) => {
     setMenuOpen(false);
     if (destination === 'home') {
       if (onCloseUnderlayer) onCloseUnderlayer();
       if (onNavigateHome) onNavigateHome();
-    } else if (destination === 'projects') {
-      if (onNavigateProjects) onNavigateProjects();
     } else if (destination === 'about') {
       if (onNavigateAbout) onNavigateAbout();
+    } else if (destination === 'projects') {
+      if (onCloseUnderlayer) onCloseUnderlayer();
+      if (onNavigateProjects) onNavigateProjects();
     } else if (destination === 'experience') {
+      if (onCloseUnderlayer) onCloseUnderlayer();
       if (onNavigateExperience) onNavigateExperience();
     } else if (destination === 'contact') {
       if (onCloseUnderlayer) onCloseUnderlayer();
@@ -50,39 +57,25 @@ export default function KuonHeader({
   };
 
   return (
-    <header className={`kuon-header ${menuOpen ? 'is-nav-open' : ''} ${isUnderlayerOpen ? 'is-underlayer-mode' : ''}`}>
+    <header className={`portfolio-header ${menuOpen ? 'is-nav-open' : ''} ${isUnderlayerOpen ? 'is-underlayer-mode' : ''}`}>
+      {/* Identitas nama Steven Wang di pojok kiri atas - HANYA tampil pada HOME/Landing Page */}
       <div className="header-left">
-        {isUnderlayerOpen && (
-          <button
-            type="button"
-            className="header-back-btn"
-            onClick={() => {
-              if (onCloseUnderlayer) onCloseUnderlayer();
+        {isHome && (
+          <a
+            className="name"
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNav('home');
             }}
-            aria-label="Back"
+            aria-label="Steven Wang Portfolio Home"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="18" viewBox="0 0 67 34">
-              <g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinecap="round" transform="translate(2 1)">
-                <path strokeWidth="2.5" d="M0,15.5533333 L64,15.5533333" />
-                <polyline strokeWidth="2.5" points="15.556 0 0 15.556 15.556 31.111" />
-              </g>
-            </svg>
-            <span>BACK</span>
-          </button>
+            {personalInfo.name}
+          </a>
         )}
-        <a
-          className="name"
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNav('home');
-          }}
-          aria-label="Steven Wang Portfolio Home"
-        >
-          {personalInfo.name}
-        </a>
       </div>
 
+      {/* Tombol hamburger menu di pojok kanan atas */}
       <div className="wrap">
         <button
           type="button"
@@ -96,7 +89,7 @@ export default function KuonHeader({
         </button>
       </div>
 
-      {/* Global Navigation Overlay - Kuon Yagi Aesthetic */}
+      {/* Menu navigasi layar penuh bergaya editorial */}
       <nav
         className={`global-nav ${menuOpen ? 'is-open' : ''}`}
         aria-hidden={!menuOpen}
@@ -118,17 +111,6 @@ export default function KuonHeader({
           </li>
           <li>
             <a
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNav('projects');
-              }}
-            >
-              PROJECT
-            </a>
-          </li>
-          <li>
-            <a
               href="#about"
               onClick={(e) => {
                 e.preventDefault();
@@ -136,6 +118,17 @@ export default function KuonHeader({
               }}
             >
               ABOUT ME
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('projects');
+              }}
+            >
+              PROJECT
             </a>
           </li>
           <li>
@@ -158,7 +151,7 @@ export default function KuonHeader({
                 handleNav('contact');
               }}
             >
-              CONTACT
+              GET IN TOUCH
             </a>
           </li>
         </ul>

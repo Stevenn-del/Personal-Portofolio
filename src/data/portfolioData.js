@@ -1,6 +1,8 @@
-// Portfolio Data for Steven Wang - Student & Aspiring UI/UX Designer
-// Follows Master Content & Editorial Structure for Steven Wang Portfolio
+// Data Portofolio Steven Wang - Student & Aspiring UI/UX Designer
+// File ini memisahkan seluruh data konten dari komponen presentasi dan layout.
+// Hal ini memudahkan penambahan project, sertifikat, atau informasi baru di masa mendatang.
 
+// Informasi profil pribadi Steven Wang
 export const personalInfo = {
   name: "Steven Wang",
   firstName: "STEVEN",
@@ -9,41 +11,45 @@ export const personalInfo = {
   shortIdentity: "student /\naspiring UI/UX designer.",
   portfolioLabel: "PORTFOLIO",
   heroLead: "PORTFOLIO\nstudent /\naspiring UI/UX designer.",
-  aboutLead: "I am a student and aspiring UI/UX designer interested in design, technology, and digital experiences.",
+  aboutLead: "I love Design, Technology,\nand Story.",
+  // Tiga paragraf ringkas biografi About Me sesuai instruksi master rehaul
   bioParagraphs: [
-    "I am a student and aspiring UI/UX designer who is interested in creating digital experiences through design and technology.",
-    "I enjoy exploring UI/UX design, web development, visual design, and digital products. I am currently developing my skills through school projects, personal projects, competitions, and continuous experimentation.",
-    "I enjoy turning ideas into interfaces that are simple, useful, and visually engaging."
+    "I am a student and aspiring UI/UX designer interested in creating digital experiences through design and technology.",
+    "I am exploring UI/UX design, web development, visual design, and digital products through school projects, personal projects, competitions, and experimentation.",
+    "I enjoy turning ideas into interfaces that are simple, useful, and engaging."
   ],
   location: "Indonesia",
+  // Akun sosial resmi Steven Wang (hanya akun asli, tanpa akun palsu)
   contact: {
     email: "stevennwang08@gmail.com",
     instagram: "https://instagram.com/stevnn_wang",
-    github: "https://github.com/Stevenn-del"
+    instagramHandle: "@stevnn_wang",
+    github: "https://github.com/Stevenn-del",
+    githubHandle: "Stevenn-del"
   }
 };
 
-// 02 PASSION - Three open editorial columns
+// Bagian 02 PASSION - Tiga pilar ketertarikan editorial (Design, Technology, Story)
 export const personalityInterests = [
   {
     number: "01",
     category: "DESIGN",
-    description: "I enjoy creating interfaces that are simple, clear, and visually engaging. I am interested in how design can make digital products easier and more enjoyable to use."
+    description: "Creating clear, intuitive, and visually engaging interfaces."
   },
   {
     number: "02",
     category: "TECHNOLOGY",
-    description: "I enjoy learning how technology works behind digital products and exploring web technologies to turn interface ideas into functional experiences."
+    description: "Exploring front-end development and digital technologies."
   },
   {
     number: "03",
     category: "STORY",
-    description: "I enjoy visual storytelling and believe that good digital experiences should communicate ideas clearly and create meaningful experiences for users."
+    description: "Turning ideas and concepts into meaningful digital experiences."
   }
 ];
 
-// 03 SKILL SET - Exact percentages specified by user
-// HTML 85%, CSS 70%, JavaScript 50% | React 30%, MySQL 50%, Figma 80%
+// Bagian 03 SKILL SET - Daftar kemampuan teknis dengan persentase terukur
+// Ditampilkan dalam tata letak 2 kolom di desktop dengan animasi penghitung angka
 export const skillSetColumns = {
   column1: [
     { name: "HTML", level: "Currently Learning", percentage: 85, icon: "html" },
@@ -57,7 +63,8 @@ export const skillSetColumns = {
   ]
 };
 
-// MULTIPLE PROJECTS Collection
+// Daftar Project / Karya Terpilih
+// Setiap project memiliki informasi lengkap untuk kartu daftar dan halaman studi kasus detail
 export const projects = [
   {
     id: "nusa-bot",
@@ -69,9 +76,10 @@ export const projects = [
     category: "UI/UX DESIGN",
     year: "2026",
     role: "UI/UX DESIGNER",
-    shortDescription: "A regional-language learning interface designed to help young users learn Indonesian local languages through a simple, interactive, and enjoyable digital experience.",
+    // Deskripsi singkat project sesuai panduan master
+    shortDescription: "A regional-language learning interface designed to make learning local Indonesian languages more interactive, simple, and engaging for young users.",
     image: "/images/project-nusa-bot.jpg",
-    overview: "Nusa Bot is a regional-language learning interface designed to help young users learn Indonesian local languages through a simple, interactive, and enjoyable digital experience.",
+    overview: "A regional-language learning interface designed to help young users explore Indonesian regional languages through a simple, interactive, and enjoyable experience.",
     conceptTitle: "CONCEPT",
     conceptText: "The concept focuses on making regional language learning easier and more enjoyable through interactive learning content, conversation practice, quizzes, and cultural exploration.",
     devTitle: "DESIGN PROCESS",
@@ -89,7 +97,7 @@ export const projects = [
       "Conversation practice",
       "Translation",
       "Learning activities",
-      "Quiz",
+      "Quizzes",
       "Progress tracking"
     ],
     resultTitle: "FINAL RESULT",
@@ -98,16 +106,16 @@ export const projects = [
     reflectionText: "This project helped me explore how interface design can make cultural and educational material more approachable and interactive for young learners."
   },
   {
-    id: "project-02",
-    slug: "project-02",
+    id: "arvion",
+    slug: "arvion",
     number: "02",
     featured: false,
-    name: "[PROJECT NAME]",
-    subtitle: "[PROJECT CATEGORY]",
-    category: "[PROJECT CATEGORY]",
+    name: "ARVION",
+    subtitle: "Interface Exploration & Layout Architecture",
+    category: "UI/UX DESIGN",
     year: "2026",
     role: "UI/UX DESIGNER",
-    shortDescription: "Created as part of a design exploration and interface development project.",
+    shortDescription: "An interface exploration focusing on clean layout architecture, accessibility, and intuitive digital workflows.",
     image: "/images/project-arvion.jpg",
     overview: "Created as part of a design exploration and interface development project, focusing on turning user requirements into clean, structured digital layouts.",
     conceptTitle: "CONCEPT",
@@ -133,16 +141,16 @@ export const projects = [
     reflectionText: "Allowed me to practice creating a digital product from an initial idea into a structured interface."
   },
   {
-    id: "project-03",
-    slug: "project-03",
+    id: "iitc-competition",
+    slug: "iitc-competition",
     number: "03",
     featured: false,
-    name: "[PROJECT NAME]",
-    subtitle: "[PROJECT CATEGORY]",
-    category: "[PROJECT CATEGORY]",
+    name: "IITC UI/UX COMPETITION",
+    subtitle: "Digital Solution Concept & Rapid Prototyping",
+    category: "UI/UX DESIGN",
     year: "2026",
     role: "UI/UX DESIGNER",
-    shortDescription: "Participated in a UI/UX design competition and developed a digital product concept.",
+    shortDescription: "A competition-focused digital product concept designed to address specific user needs through rapid prototyping and user research.",
     image: "/images/project-portfolio.jpg",
     overview: "Participated in a UI/UX design competition and developed a digital product concept addressing specific user needs.",
     conceptTitle: "CONCEPT",
@@ -168,16 +176,16 @@ export const projects = [
     reflectionText: "Strengthened my ability to solve problems under competition guidelines and refine UI solutions iteratively."
   },
   {
-    id: "project-04",
-    slug: "project-04",
+    id: "web-exploration",
+    slug: "web-exploration",
     number: "04",
     featured: false,
-    name: "[PROJECT NAME]",
-    subtitle: "[PROJECT CATEGORY]",
-    category: "[PROJECT CATEGORY]",
+    name: "HERITAGE EXPLORATION",
+    subtitle: "Responsive Web Development & Semantic Structure",
+    category: "WEB DEVELOPMENT",
     year: "2026",
     role: "STUDENT DESIGNER",
-    shortDescription: "Developed as part of my learning exploration in front-end and interface design.",
+    shortDescription: "A learning exploration in front-end development focusing on responsive layout scaling, semantic HTML, and clean styling.",
     image: "/images/project-heritage.jpg",
     overview: "Developed as part of my learning exploration in front-end development and interactive interface design.",
     conceptTitle: "CONCEPT",
@@ -204,13 +212,14 @@ export const projects = [
   }
 ];
 
-// CERTIFICATES & LEARNING Data
+// Data Sertifikat & Pembelajaran
+// Mendokumentasikan sertifikat kursus dan validasi kemampuan nyata
 export const certificates = [
   {
     id: "cert-01",
     number: "01",
-    title: "[CERTIFICATE TITLE]",
-    issuer: "[ISSUER / ORGANIZATION]",
+    title: "UI/UX DESIGN FUNDAMENTALS",
+    issuer: "ONLINE COURSEWORK",
     year: "2026",
     category: "UI/UX DESIGN",
     description: "Completed coursework covering user interface design principles, user journey mapping, low-fidelity wireframing, and interactive prototyping in Figma.",
@@ -219,8 +228,8 @@ export const certificates = [
   {
     id: "cert-02",
     number: "02",
-    title: "[CERTIFICATE TITLE]",
-    issuer: "[ISSUER / ORGANIZATION]",
+    title: "RESPONSIVE WEB DESIGN",
+    issuer: "COURSEWORK & VALIDATION",
     year: "2026",
     category: "WEB DEVELOPMENT",
     description: "Coursework and hands-on exercises in responsive web design, semantic HTML structure, CSS layout architectures, and interactive DOM scripting.",
@@ -229,8 +238,8 @@ export const certificates = [
   {
     id: "cert-03",
     number: "03",
-    title: "[CERTIFICATE TITLE]",
-    issuer: "[ISSUER / ORGANIZATION]",
+    title: "FRONT-END DEVELOPMENT",
+    issuer: "PRACTICAL TRAINING",
     year: "2026",
     category: "FRONT-END DEVELOPMENT",
     description: "Practical training exploring modern JavaScript ES6+, component lifecycle fundamentals, and building responsive client-side web experiences.",
@@ -238,7 +247,20 @@ export const certificates = [
   }
 ];
 
-// CURRENTLY LEARNING
+// Data Kompetisi & Aktivitas Nyata
+export const activities = [
+  {
+    id: "act-01",
+    number: "01",
+    title: "IITC UI/UX COMPETITION",
+    role: "PARTICIPANT",
+    category: "UI/UX DESIGN",
+    year: "2026",
+    description: "Participated in the IITC UI/UX Competition, exploring user problems, wireframing interfaces, and designing interactive digital product prototypes under competition guidelines."
+  }
+];
+
+// Bidang Pembelajaran Aktif (Currently Learning)
 export const currentlyLearning = [
   "UI/UX DESIGN",
   "FRONT-END DEVELOPMENT",
@@ -247,23 +269,3 @@ export const currentlyLearning = [
   "JAVASCRIPT",
   "FIGMA"
 ];
-
-// Backwards-compatibility mappings
-export const experienceData = {
-  homepageSummary: "CERTIFICATES & LEARNING",
-  certificates: certificates,
-  currentlyLearning: currentlyLearning
-};
-
-export const skillsData = {
-  column1: skillSetColumns.column1,
-  column2: skillSetColumns.column2
-};
-
-export const aboutMeData = {
-  values: personalityInterests.map((p) => ({
-    number: p.number,
-    title: p.category,
-    description: p.description
-  }))
-};

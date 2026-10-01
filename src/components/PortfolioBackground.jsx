@@ -1,13 +1,17 @@
-export default function KuonBackground({ activeSlideIndex, isUnderlayerOpen }) {
-  // Hide background parallax moon on underlayers if needed or keep it subtle
+// Komponen ini mengatur latar belakang visual atmosfer langit malam, bintang,
+// pendaran bulan, dan tipografi selestial pada halaman utama portofolio.
+// Animasi dan kedalaman visual ini terinspirasi dari gaya editorial Kuon Yagi.
+
+export default function PortfolioBackground({ activeSlideIndex, isUnderlayerOpen }) {
+  // Efek visual bulan hanya tampil menonjol pada slide pertama (Hero/Cover)
   const isTopSlide = activeSlideIndex === 0 && !isUnderlayerOpen;
 
   return (
-    <div className="kuon-background-wrap" aria-hidden="true">
-      {/* Sky Color Gradient */}
+    <div className="portfolio-background-wrap" aria-hidden="true">
+      {/* Gradien warna langit malam */}
       <div className="sky-color"></div>
 
-      {/* Star Field */}
+      {/* Hamparan bintang berkelap-kelip halus */}
       <div className="star">
         <div className="star__field">
           {Array.from({ length: 40 }).map((_, i) => (
@@ -25,37 +29,30 @@ export default function KuonBackground({ activeSlideIndex, isUnderlayerOpen }) {
         </div>
       </div>
 
-      {/* Moon Light Glow */}
+      {/* Pendaran cahaya bulan lembut */}
       <div className="moon-background">
         <div className="moonlight">
           <div className="moonlight__glow"></div>
         </div>
       </div>
 
-      {/* Celestial Moon Layer (Only prominent on Slide 0 like Kuon Yagi's site) */}
+      {/* Elemen visual bulan selestial (tampil penuh pada slide cover) */}
       <div className={`moon ${isTopSlide ? 'is-visible' : 'is-faded'}`}>
         <div className="moon__inner">
-          {/* Back cloud layer */}
           <div className="moon__cloud cloud--back"></div>
-
-          {/* Central Moon Sphere */}
           <div className="moon__sphere">
             <div className="moon__crater crater-1"></div>
             <div className="moon__crater crater-2"></div>
             <div className="moon__crater crater-3"></div>
           </div>
-
-          {/* Front cloud layer */}
           <div className="moon__cloud cloud--front"></div>
-
-          {/* PORTFOLIO Overlay Typography */}
           <div className="moon__text-wrap">
             <p className="moon__text">PORTFOLIO</p>
           </div>
         </div>
       </div>
 
-      {/* Fixed Vertical ScrollDown Indicator */}
+      {/* Indikator scroll vertikal SCROLLDOWN pada mode slide deck */}
       {!isUnderlayerOpen && (
         <p className="scrollDown">
           <span>SCROLLDOWN</span>
